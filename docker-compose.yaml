@@ -1,0 +1,22 @@
+services:
+  mongodb:
+    image: mongo:6.0
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27018:27017"
+    volumes:
+      - imagegen_data:/data/db
+  backend:
+    build: .
+    ports:
+      - "8081:8000"
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/app
+
+volumes:
+  imagegen_data:
