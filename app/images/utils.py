@@ -11,7 +11,7 @@ def convert_image(image: bytes, mode: str = "FLOYDSTEINBERG") -> dict:
         raise ValueError("Unsupported dithering mode. Use 'FLOYDSTEINBERG' or 'NONE'.")
     img_width, img_height = img.size
     img_aspect_ratio = img_height / img_width
-    img = img.resize((320, int(320 * img_aspect_ratio)))
+    img = img.resize((144, int(144 * img_aspect_ratio)))
 
     width, height = img.size
     width_bytes = (width + 7) // 8
