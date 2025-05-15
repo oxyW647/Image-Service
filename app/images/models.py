@@ -13,5 +13,5 @@ class Image(Document):
     created_at: datetime = Field(default_factory=datetime.utcnow)
 
     class Settings:
-        name = "files"
+        name = "images"
         indexes = ["user", "created_at"]
